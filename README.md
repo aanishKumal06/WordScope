@@ -3,7 +3,7 @@
 
 # 📝 Text Analysis CLI Tool
 
-A fast and simple command-line tool that analyzes input text files and provides key statistics — including word count, character count, sentence count, and word frequency analysis. Built using Python with clean and modular code.
+A fast and simple tool that analyzes input text and provides key statistics — including word count, character count, sentence count, and word frequency analysis. Built using Python with clean and modular code.
 
 ---
 
