@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'header.html' %}
+
+<body data-bs-theme="dark">
+
+    <div class="container py-4">
+        {% include 'navbar.html' %}
+        <!-- <div class="row g-4 align-items-stretch"> -->
+        <!-- Left Section -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card p-4 h-10">
+
+                        <h4 class="mb-4">Analyze Your Text</h4>
+
+
+                        <form method="post">
+                            {% csrf_token %}
+
+                            <textarea class="form-control mb-3" id="textArea" name="paragraph" rows="10"
+                                placeholder="Paste your text here...">{{ input_text }}</textarea>
+
+                            <div class="d-flex justify-content-end mb-3">
+                                <button class="btn me-2">Analyze Text</button>
+                                <button class="btn btn-danger" type="button" onclick="clearText()">Clear</button>
+                            </div>
+                        </form>
+
+                        <div class="d-flex gap-3">
+                            <div class="stats-card flex-fill">
+                                <h5 class="mb-0" id="wordCount">{{ word_count|default:"0" }}</h5>
+                                <small class="text-muted">Words</small>
+                            </div>
+                            <div class="stats-card flex-fill">
+                                <h5 class="mb-0" id="charCount">{{ character_count|default:"0" }}</h5>
+                                <small class="text-muted">Characters</small>
+                            </div>
+                            <div class="stats-card flex-fill">
+                                <h5 class="mb-0" id="sentenceCount">{{ sentence_count|default:"0" }}</h5>
+                                <small class="text-muted">Sentences</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    {% include 'footer.html' %}
+    <script>
+        function clearText() {
+
+            document.getElementById("textArea").value = "";
+            document.getElementById("wordCount").innerText = "0";
+            document.getElementById("charCount").innerText = "0";
+            document.getElementById("sentenceCount").innerText = "0";
+        }
+
+    </script>
+</body>
+
+</html>
