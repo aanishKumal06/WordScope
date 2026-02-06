@@ -7,11 +7,12 @@ class TextProcessing:
     def clean_paragraph(self, paragraph):
         cleaned = re.sub(r"[^A-Za-z0-9\s]", "", paragraph)
         cleaned = re.sub(r"\s+", " ", cleaned)
-        return cleaned
+        return cleaned.strip()
 
     def count_sentences(self, paragraph):
-        sentences = paragraph.split(".")
-        return len(sentences) - 1
+        sentences = re.split(r'[.!?]+', paragraph.strip())
+        # Filter out empty strings and count
+        return len([s for s in sentences if s.strip()])
 
     def count_words(self, words):
         counter_dict = {}
@@ -48,9 +49,9 @@ class TextAnalysisView(TextProcessing, View):
             }
         else:
             paragraph_cleaned = self.clean_paragraph(paragraph)
-            words = paragraph_cleaned.split(" ")
+            words = [w for w in paragraph_cleaned.split(" ") if w]
             sentence_count = self.count_sentences(paragraph)
-            word_count = len(words) - 1
+            word_count = len(words)
             character_count = len(paragraph)
             counter_dict = self.count_words(words)
             sorted_dict = self.sort_dict(counter_dict)
@@ -81,9 +82,9 @@ class TextStatsView(TextProcessing, View):
             }
         else:
             paragraph_cleaned = self.clean_paragraph(paragraph)
-            words = paragraph_cleaned.split(" ")
+            words = [w for w in paragraph_cleaned.split(" ") if w]
             sentence_count = self.count_sentences(paragraph)
-            word_count = len(words) - 1
+            word_count = len(words)
             character_count = len(paragraph)
 
             context = {
@@ -109,7 +110,7 @@ class WordFrequencyView(TextProcessing, View):
             }
         else:
             paragraph_cleaned = self.clean_paragraph(paragraph)
-            words = paragraph_cleaned.split(" ")
+            words = [w for w in paragraph_cleaned.split(" ") if w]
             counter_dict = self.count_words(words)
             sorted_dict = self.sort_dict(counter_dict)
 

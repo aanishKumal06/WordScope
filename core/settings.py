@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-sf5bt%$#e_0iqa=39wz=14-kftq=*ba9$wfx-h_m7$13l$8qwa
 DEBUG = True
 
 ALLOWED_HOSTS = [ 'wordscope-4ux6.onrender.com', 
-                'localhost', 
+                'localhost',
+                '127.0.0.1',
                 'wordscope.anishkumal.com.np'
                 ]
 
