@@ -46,6 +46,7 @@ class TextAnalysisView(TextProcessing, View):
                 "sentence_count": 0,
                 "sorted_dict": {},
                 "input_text": "",
+                "error": "Please enter some text to analyze",
             }
         else:
             paragraph_cleaned = self.clean_paragraph(paragraph)
@@ -79,6 +80,7 @@ class TextStatsView(TextProcessing, View):
                 "character_count": 0,
                 "sentence_count": 0,
                 "input_text": "",
+                "error": "Please enter some text to analyze",
             }
         else:
             paragraph_cleaned = self.clean_paragraph(paragraph)
@@ -107,6 +109,7 @@ class WordFrequencyView(TextProcessing, View):
             context = {
                 "sorted_dict": {},
                 "input_text": "",
+                "error": "Please enter some text to analyze",
             }
         else:
             paragraph_cleaned = self.clean_paragraph(paragraph)

@@ -15,6 +15,13 @@
                     <form method="post">
                         {%csrf_token%}
 
+                        {% if error %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{ error }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                        {% endif %}
+
                         <textarea class="form-control mb-3" id="textArea" name="paragraph" rows="10"
                             placeholder="Paste your text here...">{{ input_text }}</textarea>
 
