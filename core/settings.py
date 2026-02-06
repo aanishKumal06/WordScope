@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-sf5bt%$#e_0iqa=39wz=14-kftq=*ba9$wfx-h_m7$13l$8qwa
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'wordscope-4ux6.onrender.com', 
+                'localhost', 
+                'wordscope.anishkumal.com.np'
+                ]
+
+
 
 
 # Application definition
