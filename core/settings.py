@@ -30,6 +30,10 @@ ALLOWED_HOSTS = [ 'wordscope-4ux6.onrender.com',
                 'wordscope.anishkumal.com.np'
                 ]
 
+CSRF_TRUSTED_ORIGINS = [ 'https://wordscope.anishkumal.com.np',
+                        'https://wordscope-4ux6.onrender.com',
+                        'http://localhost:8000'
+                        ]
 
 
 
